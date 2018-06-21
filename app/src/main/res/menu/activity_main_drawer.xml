@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/home_nav" />
+        <item
+            android:id="@+id/nav_register"
+            android:icon="@drawable/ic_note_add_black_24dp"
+            android:title="@string/register_nav" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_arrow_forward_black_24dp"
+            android:title="@string/login_nav" />
+        <item
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="@string/categories_nav" />
+        <item
+            android:id="@+id/nav_admin"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/admin_panel" />
+
+        <item
+            android:id="@+id/nav_customer_profile"
+            android:icon="@drawable/ic_edit_black_24dp"
+            android:title="@string/profile" />
+
+        <item
+            android:id="@+id/nav_customer_orders"
+            android:icon="@drawable/ic_reorder_black_24dp"
+            android:title="@string/logout" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/logout" />
+        <item
+            android:id="@+id/nav_list_orders"
+            android:icon="@drawable/ic_reorder_black_24dp"
+            android:title="@string/orders" />
+
+        <item
+            android:id="@+id/nav_driver_orders"
+            android:icon="@drawable/ic_airport_shuttle_black_24dp"
+            android:title="@string/delivered_orders" />
+
+        <item
+            android:id="@+id/nav_supplier"
+            android:icon="@drawable/ic_dehaze_black_24dp"
+            android:title="Supplier panel" />
+    </group>
+
+</menu>

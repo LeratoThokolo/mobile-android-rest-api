@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/grandTotal"
+        android:orderInCategory="100"
+        android:title="@string/grand_total"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/clearCart"
+        android:title="@string/clear_cart"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/proceed"
+        android:title="@string/proceed"
+        app:showAsAction="never" />
+</menu>

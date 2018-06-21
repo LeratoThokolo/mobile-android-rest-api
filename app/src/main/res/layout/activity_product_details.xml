@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProductDetails">
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/product_image"
+
+        />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="@string/product_name" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textViewName"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:text="@string/price_product" />
+
+    <Button
+        android:id="@+id/addToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp"
+        android:background="@color/green"
+        android:text="@string/add_to_cart"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewCount"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:enabled="false"
+        android:onClick="decrementCountValue"
+        android:background="@color/whitesmoke"
+        android:text="@string/minusCount" />
+
+    <Button
+        android:id="@+id/buttonPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/buttonMinus"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:onClick="incrementCountValue"
+        android:background="@color/whitesmoke"
+        android:text="@string/addCount" />
+
+    <TextView
+        android:id="@+id/textViewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="251dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/red"
+        android:text="@string/item_s" />
+
+
+</RelativeLayout>

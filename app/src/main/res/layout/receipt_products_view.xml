@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    android:padding="5dp"
+    app:cardPreventCornerOverlap="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/product_name"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="117dp"
+            android:layout_height="27dp"
+            android:layout_alignStart="@+id/productCount"
+            android:layout_centerVertical="true"
+            android:text="@string/product_name"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignLeft="@+id/productCount" />
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="22dp"
+            android:text="@string/price_product"
+            android:textColor="@color/darkslategray"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/productCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/productPrice"
+            android:layout_marginLeft="136dp"
+            android:layout_marginStart="136dp"
+            android:text="@string/item_s"
+            android:textColor="@color/darkslategray"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/productSubTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/productName"
+            android:layout_marginBottom="13dp"
+            android:text="@string/subtotal"
+            android:textColor="@color/red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignLeft="@+id/productName" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

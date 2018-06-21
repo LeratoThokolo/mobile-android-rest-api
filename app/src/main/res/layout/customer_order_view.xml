@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewOrderAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textViewOrderNo"
+        android:layout_marginEnd="23dp"
+        android:text="@string/order_amount"
+        android:textColor="@color/red"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginRight="23dp"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/textViewOrderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textViewDelivered"
+        android:layout_marginTop="126dp"
+        android:text="@string/order_date"
+        android:textColor="@color/darkslategray"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/textViewDelivered" />
+
+    <TextView
+        android:id="@+id/textViewDelivered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="73dp"
+        android:text="@string/delivered"
+        android:textColor="@color/violet"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="27dp" />
+
+    <TextView
+        android:id="@+id/textViewOrderNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textViewDelivered"
+        android:layout_marginTop="16dp"
+        android:text="@string/order"
+        android:textColor="@color/green"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/textViewDelivered" />
+</RelativeLayout>

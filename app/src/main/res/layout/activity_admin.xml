@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".activities.AdminActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/admin_panel"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/steelblue"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/buttonAllProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_products"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:id="@+id/buttonAllCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_categories"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:id="@+id/buttonAllCustomers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_customers"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllAddProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_products"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllAddCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_categories"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllAddSupplier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_supplier"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllAddDriver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_driver"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllViewAllOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_orders"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllAppUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_all_app_users"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
+</LinearLayout>
+</ScrollView>
