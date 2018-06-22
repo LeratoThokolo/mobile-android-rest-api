@@ -21,7 +21,7 @@
         android:layout_marginBottom="20dp"/>
 
     <Button
-        android:id="@+id/buttonAllAddCategories"
+        android:id="@+id/buttonAddCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_categories"

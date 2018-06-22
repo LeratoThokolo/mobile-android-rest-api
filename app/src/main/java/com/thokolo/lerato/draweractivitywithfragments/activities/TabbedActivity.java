@@ -37,9 +37,9 @@ public class TabbedActivity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Fragment_One(), "Product");
         adapter.addFragment(new Fragment_Two(),"Catego..");
-        adapter.addFragment(new Fragment_Three(), "3rd party");
-        adapter.addFragment(new Fragment_Four(), "Orders");
-        adapter.addFragment(new Fragment_Five(), "App users");
+        adapter.addFragment(new Fragment_Three(), "Drivers");
+        adapter.addFragment(new Fragment_Four(), "Supplier");
+        adapter.addFragment(new Fragment_Five(), "Orders");
 
         viewPager.setAdapter(adapter);
     }

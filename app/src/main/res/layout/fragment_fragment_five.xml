@@ -8,10 +8,10 @@
     tools:context=".activities.Fragment_One">
 
     <Button
-        android:id="@+id/buttonAllAppUsers"
+        android:id="@+id/buttonAllViewAllOrders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/view_all_app_users"
+        android:text="@string/view_orders"
         android:textColor="@color/whitesmoke"
         android:textSize="20sp"
         android:textStyle="bold"

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical"
+        android:background="@color/whitesmoke"
+        tools:context=".activities.RegisterFragment">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"
+            android:shadowColor="@color/whitesmoke"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_gravity="center_horizontal"
+            android:shadowRadius="2"
+            android:text="@string/update_category"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/steelblue"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutCategoryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:counterMaxLength="30"
+            app:counterEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/category_name"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonUpdateCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="113dp"
+            android:background="@color/steelblue"
+            android:text="@string/update_category"
+            android:textAllCaps="false"
+            android:textColor="@color/whitesmoke"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

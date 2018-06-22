@@ -91,5 +91,10 @@
     <string name="view_all_app_users">View All App Users</string>
     <string name="new_product">New Product</string>
     <string name="add_product">Add product</string>
+    <string name="update_category">Update category</string>
+    <string name="category_name">Category name</string>
+    <string name="all_suppliers">All Suppliers</string>
+    <string name="all_drivers">All Drivers</string>
+    <string name="add_category">Add Category</string>
 
 </resources>

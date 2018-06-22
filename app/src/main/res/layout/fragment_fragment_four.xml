@@ -7,11 +7,12 @@
     android:padding="20dp"
     tools:context=".activities.Fragment_One">
 
+
     <Button
-        android:id="@+id/buttonAllViewAllOrders"
+        android:id="@+id/buttonAllAddSupplier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/view_orders"
+        android:text="@string/add_supplier"
         android:textColor="@color/whitesmoke"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -19,5 +20,18 @@
         android:background="@color/steelblue"
         android:textAllCaps="false"
         android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAllSuppliers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/all_suppliers"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/steelblue"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"/>
+
 
 </LinearLayout>

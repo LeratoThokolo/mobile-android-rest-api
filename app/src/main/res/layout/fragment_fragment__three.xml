@@ -8,10 +8,10 @@
     tools:context=".activities.Fragment_One">
 
     <Button
-        android:id="@+id/buttonAllAddSupplier"
+        android:id="@+id/buttonAllAddDriver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_supplier"
+        android:text="@string/add_driver"
         android:textColor="@color/whitesmoke"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -21,10 +21,10 @@
         android:layout_marginBottom="20dp"/>
 
     <Button
-        android:id="@+id/buttonAllAddDriver"
+        android:id="@+id/buttonAllDrivers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_driver"
+        android:text="@string/all_drivers"
         android:textColor="@color/whitesmoke"
         android:textSize="20sp"
         android:textStyle="bold"
