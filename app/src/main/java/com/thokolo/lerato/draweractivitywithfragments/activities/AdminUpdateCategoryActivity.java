@@ -96,6 +96,7 @@ public class AdminUpdateCategoryActivity extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
 
                             CustomToast.createToast(AdminUpdateCategoryActivity.this, category.getName() + " updated successfully");
+                            startActivity(new Intent(AdminUpdateCategoryActivity.this, AdminCategoriesActivity.class));
 
                         }
                     },

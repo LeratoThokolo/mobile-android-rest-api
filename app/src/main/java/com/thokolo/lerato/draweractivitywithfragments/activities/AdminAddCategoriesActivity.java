@@ -1,5 +1,6 @@
 package com.thokolo.lerato.draweractivitywithfragments.activities;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -82,7 +83,7 @@ public class AdminAddCategoriesActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(params);
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                    Request.Method.PUT,
+                    Request.Method.POST,
                     url,
                     jsonObject,
                     new Response.Listener<JSONObject>() {
@@ -94,6 +95,7 @@ public class AdminAddCategoriesActivity extends AppCompatActivity {
                             Category category = gson.fromJson(String.valueOf(response), Category.class);
 
                             CustomToast.createToast(AdminAddCategoriesActivity.this, category.getName() + " added successfully");
+                            startActivity(new Intent(AdminAddCategoriesActivity.this, MainActivity.class));
 
                         }
                     },
