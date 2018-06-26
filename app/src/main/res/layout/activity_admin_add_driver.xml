@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical"
+        android:background="@color/whitesmoke"
+        tools:context=".activities.RegisterFragment">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"
+            android:shadowColor="@color/whitesmoke"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_gravity="center_horizontal"
+            android:shadowRadius="2"
+            android:text="@string/add_driver"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/steelblue"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutFullNames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:counterMaxLength="30"
+            app:counterEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/full_names"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/user_name"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/email"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutCellNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:counterMaxLength="10"
+            app:counterEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/phone"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:passwordToggleEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/password"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/steelblue"
+            android:layout_margin="10dp"
+            app:passwordToggleEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/steelblue"
+                android:backgroundTint="@color/steelblue"
+                android:hint="@string/confirm_password"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/buttonAddDriver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="113dp"
+            android:textColor="@color/whitesmoke"
+            android:background="@color/steelblue"
+            android:text="@string/add_driver"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+</ScrollView>
