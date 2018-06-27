@@ -100,12 +100,63 @@ public class CategoryItems extends AppCompatActivity {
                             case 57:
 
                                 products.get(0).setImageResource(R.drawable.rich_creamy_ice_cream);
-                                products.get(1).setImageResource(R.drawable.ola_magnum);
+                                break;
+
+                            case 58:
+
+                                products.get(0).setImageResource(R.drawable.bokomo_rusks);
+                                products.get(1).setImageResource(R.drawable.tennis_biscuits);
+
+                                break;
+
+                            case 59:
+
+                                products.get(0).setImageResource(R.drawable.pnp_pizza);
+                                products.get(1).setImageResource(R.drawable.beef_lasagne);
+                                products.get(2).setImageResource(R.drawable.chicken_pnp_biryani);
+
                                 break;
 
                             case 414:
 
                                 products.get(0).setImageResource(R.drawable.braaimaster);
+
+                                break;
+
+                            case 69:
+
+                                products.get(0).setImageResource(R.drawable.nivea_men_deodorant);
+                                products.get(1).setImageResource(R.drawable.camphor_cream);
+                                products.get(2).setImageResource(R.drawable.nivea_men_lotion);
+
+                                break;
+
+                            case 71:
+
+                                products.get(0).setImageResource(R.drawable.twinsaver);
+                                products.get(1).setImageResource(R.drawable.domestos);
+
+                                break;
+
+                            case 152:
+
+                                products.get(0).setImageResource(R.drawable.bonaqua_naartjie);
+
+                                break;
+
+                            case 32:
+
+                                products.get(0).setImageResource(R.drawable.baby_jelly);
+                                products.get(1).setImageResource(R.drawable.baby_aqueos_cream);
+                                products.get(2).setImageResource(R.drawable.baby_formula);
+                                products.get(3).setImageResource(R.drawable.pampers_active_dry_bay);
+
+                                break;
+
+                            case 36:
+
+                                products.get(0).setImageResource(R.drawable.wireless_mouse);
+                                products.get(1).setImageResource(R.drawable.external_hard_drive);
 
                                 break;
 
