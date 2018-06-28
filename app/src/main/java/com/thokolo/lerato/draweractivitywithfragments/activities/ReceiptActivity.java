@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -32,6 +33,9 @@ import com.thokolo.lerato.draweractivitywithfragments.models.Order;
 
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -55,6 +59,8 @@ public class ReceiptActivity extends AppCompatActivity {
     private Order order;
     private SharedPreferences loginSharedPreferences;
     private RequestQueue requestQueueCartAll;
+    private File file;
+    private RequestQueue requestQueueSendEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,7 @@ public class ReceiptActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Receipt");
 
 
+        this.requestQueueSendEmail = Volley.newRequestQueue(this);
         this.requestQueueCreateOrder = Volley.newRequestQueue(this);
         this.requestQueueCartAll = Volley.newRequestQueue(this);
         this.requestQueue = Volley.newRequestQueue(this);
@@ -138,7 +145,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
                             String url = "http://10.0.2.2:8080/order/order-create";
 
-                            Map<String, String> params = new HashMap<String, String>();
+                            final Map<String, String> params = new HashMap<String, String>();
                             params.put("amount", String.valueOf(order.getAmount()));
                             params.put("orderNumber", String.valueOf(orderNumber));
                             params.put("area", String.valueOf(order.getArea()));
@@ -161,11 +168,13 @@ public class ReceiptActivity extends AppCompatActivity {
 
                                             AlertDialog.Builder builder1 = new AlertDialog.Builder(ReceiptActivity.this)
                                                     .setTitle("Thank You")
-                                                    .setMessage("Please expect your order within 30 minutes!!")
+                                                    .setMessage("Please check your email inbox for order confirmation." + "\n" +
+                                                    "Your order will be delivered within 30 minutes!!")
                                                     .setPositiveButton("Okay thanks", new DialogInterface.OnClickListener() {
                                                         @Override
                                                         public void onClick(DialogInterface dialog, int which) {
 
+                                                            sendEmail();
                                                             SharedPreferences.Editor editor = loginSharedPreferences.edit();
                                                             editor.remove("user-logged-in");
                                                             editor.apply();
@@ -262,8 +271,6 @@ public class ReceiptActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
     private void getCartItems(){
 
         Type type = new TypeToken<ArrayList<CartItem>>(){}.getType();
@@ -273,5 +280,104 @@ public class ReceiptActivity extends AppCompatActivity {
         this.recyclerViewAdapter = new ReceiptProductsAdapter(this.cartItems);
         this.recyclerView.setAdapter(this.recyclerViewAdapter);
 
+        this.file = new File("C:/Users/MANDELACOMP2/AndroidStudioProjects/DrawerActivityWithFragments/receipt.txt");
+
+        try {
+
+            if(this.file.exists()){
+
+                Log.e("", "File already exists");
+
+            }else{
+
+               try{
+
+                   this.file.createNewFile();
+
+               }catch (Exception e){
+
+                   e.printStackTrace();
+               }
+
+               try{
+
+                   FileWriter fileWriter = new FileWriter(this.file);
+                   BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+                   bufferedWriter.write("Items ordered");
+
+                   bufferedWriter.write("Total paid: R" + this.grandTotal);
+                   bufferedWriter.newLine();
+                   bufferedWriter.close();
+
+
+               }catch (Exception e){
+
+                   e.printStackTrace();
+               }
+            }
+
+
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
+    }
+
+    private void sendEmail() {
+
+        final String to_email = customer.getEmail();
+        String subject = "PnP receipt";
+        String body = "PicknPay Receipt" + "\n";
+
+        for (int x = 0; x < this.cartItems.size(); x++){
+
+            body = body + "\n" + " " + this.cartItems.get(x).getProduct().getName() + " x " + this.cartItems.get(x).getCount() + ".";
+        }
+
+        body = body + "\n" + "\n" + "\n" + "Total due: R" + this.grandTotal;
+
+
+        String url = "http://10.0.2.2:8080/email/send-email";
+
+
+        Map<String, String> emailParams = new HashMap<String, String>();
+        emailParams.put("to_email", to_email);
+        emailParams.put("subject", subject);
+        emailParams.put("body", body);
+        emailParams.put("file", String.valueOf(this.file));
+
+        JSONObject jsonObjectSendEmail = new JSONObject(emailParams);
+
+        JsonObjectRequest jsonObjectRequestSendEmail = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                jsonObjectSendEmail,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        CustomToast.createToast(ReceiptActivity.this, "Email sent to " + to_email);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        error.printStackTrace();
+                    }
+                }
+        ){
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> headers = new HashMap<String, String>();
+                headers.put(ApplicationHeaders.HEADERS, ApplicationHeaders.HEADERSVALUE);
+                return headers;
+            }
+        };
+
+        this.requestQueueSendEmail.add(jsonObjectRequestSendEmail);
     }
 }
