@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,12 +20,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thokolo.lerato.draweractivitywithfragments.R;
+import com.thokolo.lerato.draweractivitywithfragments.models.ApplicationHeaders;
 import com.thokolo.lerato.draweractivitywithfragments.models.CustomToast;
 import com.thokolo.lerato.draweractivitywithfragments.models.LoginResponse;
 import com.thokolo.lerato.draweractivitywithfragments.models.User;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -34,6 +37,7 @@ public class RecoverPasswordActivity extends AppCompatActivity {
     private TextInputLayout textInputLayoutRecoverPasswordEmail;
     private Button buttonRecoverPassword;
     private RequestQueue requestQueue;
+    private RequestQueue requestQueueSendEmail;
 
 
     @Override
@@ -44,6 +48,7 @@ public class RecoverPasswordActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4682b4")));
 
         this.requestQueue = Volley.newRequestQueue(this);
+        this.requestQueueSendEmail = Volley.newRequestQueue(this);
         this.intializeGadgets();
         this.buttonRecoverPassword.setOnClickListener(recoverPassword());
 
@@ -123,26 +128,71 @@ public class RecoverPasswordActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
 
+                            final File file = new File("C:/Users/MANDELACOMP2/AndroidStudioProjects/DrawerActivityWithFragments/password_recovery.txt");
+                            final String url = "http://10.0.2.2:8080/email/send-email";
+
                             Gson gson = new Gson();
-                            LoginResponse loginResponse = gson.fromJson(String.valueOf(response), LoginResponse.class);
+                            final LoginResponse loginResponse = gson.fromJson(String.valueOf(response), LoginResponse.class);
 
                             if(loginResponse.getUser().getUserName() != null){
 
                                AlertDialog.Builder builder = new AlertDialog.Builder(RecoverPasswordActivity.this)
                                        .setTitle(loginResponse.getMessageResponse())
-                                       .setMessage("Your username:" + loginResponse.getUser().getUserName()
-                                               + "\n" + "Your password:" + loginResponse.getUser().getPassword())
-                                       .setPositiveButton("Login", new DialogInterface.OnClickListener() {
+                                       .setMessage("Username and password sent to the email provided!!")
+                                       .setPositiveButton("Okay thanks", new DialogInterface.OnClickListener() {
                                            @Override
                                            public void onClick(DialogInterface dialog, int which) {
+                                               final String to_email = loginResponse.getUser().getEmail();
+                                               String subject = "Login details recovery";
+                                               String body = "Hi " + loginResponse.getUser().getFullNames() + "\n" + "\n" +
+                                                       "Your username:" + loginResponse.getUser().getUserName() + "\n" +
+                                                       "Your password:" + loginResponse.getUser().getPassword() + "\n" + "\n" + "\n" +
+                                                       "Kind regards," + "\n" +
+                                                       "PicknPay store";
+
+                                               Map<String, String> params  = new HashMap<String, String>();
+                                               params.put("to_email", to_email);
+                                               params.put("subject", subject);
+                                               params.put("body", body);
+                                               params.put("file", String.valueOf(file));
+
+                                               JSONObject jsonObjectEmailSend = new JSONObject(params);
+
+                                               JsonObjectRequest jsonObjectRequestSendEmail = new JsonObjectRequest(
+                                                       Request.Method.POST,
+                                                       url,
+                                                       jsonObjectEmailSend,
+                                                       new Response.Listener<JSONObject>() {
+                                                           @Override
+                                                           public void onResponse(JSONObject response) {
+
+                                                               CustomToast.createToast(RecoverPasswordActivity.this, "Email sent to " + to_email);
+                                                           }
+                                                       },
+                                                       new Response.ErrorListener() {
+                                                           @Override
+                                                           public void onErrorResponse(VolleyError error) {
+
+                                                               error.printStackTrace();
+                                                           }
+                                                       }
+                                               ){
+                                                   @Override
+                                                   public Map<String, String> getHeaders() throws AuthFailureError {
+
+                                                       Map<String, String> headers  = new HashMap<String, String>();
+                                                       headers.put(ApplicationHeaders.HEADERS, ApplicationHeaders.HEADERSVALUE);
+
+                                                       return  headers;
+                                                   }
+                                               };
+
+                                               requestQueueSendEmail.add(jsonObjectRequestSendEmail);
+
+
+
                                                CustomToast.createToast(RecoverPasswordActivity.this, "Navigate to login");
                                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                           }
-                                       })
-                                       .setNegativeButton("Close", new DialogInterface.OnClickListener() {
-                                           @Override
-                                           public void onClick(DialogInterface dialog, int which) {
-
                                            }
                                        });
 

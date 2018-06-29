@@ -61,6 +61,7 @@ public class ReceiptActivity extends AppCompatActivity {
     private RequestQueue requestQueueCartAll;
     private File file;
     private RequestQueue requestQueueSendEmail;
+    private int orderNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,7 @@ public class ReceiptActivity extends AppCompatActivity {
         }else if(id == R.id.checkout){
 
             Random random = new Random();
-            final int orderNumber = random.nextInt(1000) + 234;
+            orderNumber = random.nextInt(1000) + 234;
 
             DecimalFormat decimalFormat = new DecimalFormat("##.#");
 
@@ -328,14 +329,18 @@ public class ReceiptActivity extends AppCompatActivity {
 
         final String to_email = customer.getEmail();
         String subject = "PnP receipt";
-        String body = "PicknPay Receipt" + "\n";
+        String body = "PicknPay Receipt" + "\n" + "-------------------------" + "\n" + "\n" + "Order # " + orderNumber + "\n" +
+                "Order date: " + new Date() + "\n" + "\n";
 
         for (int x = 0; x < this.cartItems.size(); x++){
 
             body = body + "\n" + " " + this.cartItems.get(x).getProduct().getName() + " x " + this.cartItems.get(x).getCount() + ".";
         }
 
-        body = body + "\n" + "\n" + "\n" + "Total due: R" + this.grandTotal;
+        DecimalFormat decimalFormat = new DecimalFormat("##.#");
+
+        body = body + "\n" + "\n" + "\n" + "--------------------------------" + "\n" + "Total due: R" + decimalFormat.format(this.grandTotal) + "\n" +
+        "---------------------------------";
 
 
         String url = "http://10.0.2.2:8080/email/send-email";
