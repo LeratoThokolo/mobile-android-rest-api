@@ -145,8 +145,8 @@ public class RecoverPasswordActivity extends AppCompatActivity {
                                                final String to_email = loginResponse.getUser().getEmail();
                                                String subject = "Login details recovery";
                                                String body = "Hi " + loginResponse.getUser().getFullNames() + "\n" + "\n" +
-                                                       "Your username:" + loginResponse.getUser().getUserName() + "\n" +
-                                                       "Your password:" + loginResponse.getUser().getPassword() + "\n" + "\n" + "\n" +
+                                                       "Your username: " + loginResponse.getUser().getUserName() + "\n" +
+                                                       "Your password: " + loginResponse.getUser().getPassword() + "\n" + "\n" + "\n" +
                                                        "Kind regards," + "\n" +
                                                        "PicknPay store";
 
