@@ -105,6 +105,8 @@ public class RecoverPasswordActivity extends AppCompatActivity {
             this.textInputLayoutRecoverPasswordEmail.setError(null);
 
             return true;
+
+
         }
 
     }
@@ -112,6 +114,7 @@ public class RecoverPasswordActivity extends AppCompatActivity {
     private void getForgottenPassword() {
 
         if(!validateEmail()){
+
 
             return;
 
